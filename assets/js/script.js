@@ -39,8 +39,8 @@ function recipeCards(recipeData) {
   for (var i = 0; i < 5; i++) {
     console.log(recipeData);
     var calorieInfo = Math.round(recipeData[i].recipe.calories);
-    var carbInfo = Math.round(
-      recipeData[i].recipe.totalNutrients.CHOCDF.quantity
+    var fatInfo = Math.round(
+      recipeData[i].recipe.totalNutrients.FAT.quantity
     );
     var protienInfo = Math.round(
       recipeData[i].recipe.totalNutrients.PROCNT.quantity
@@ -83,8 +83,8 @@ function recipeCards(recipeData) {
       <p>
       Calories: ` +
         singleServing +
-        `kcal | Carbs: ` +
-        carbInfo +
+        `kcal | Fat: ` +
+        fatInfo +
         `g | Protien: ` +
         protienInfo +
         `g
