@@ -71,11 +71,11 @@ function recipeCards(recipeData){
   }
 
   $(document).on('click','#addMeal',function() {
-    var poopoo = $(this).prev().text().trim();
-    var doodoo = poopoo.split("|");
+    var mealTime = $(this).prev().text().trim();
+    var mealSplit = mealTime.split("|");
     var currentTime = moment().format("MMM Do YY")
-    doodoo.push(currentTime);
-    mealTracker.push(doodoo);
+    mealSplit.push(currentTime);
+    mealTracker.push(mealSplit);
     localStorage.setItem("meals", JSON.stringify(mealTracker));
     })
   };
