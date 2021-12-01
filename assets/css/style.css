@@ -10,7 +10,7 @@ h1{
 li{
     text-decoration: underline;
     font-size: large;
-    color: whitesmoke;
+    color: rgb(0, 0, 0);
 }
 #searchbar{
     height: fit-content;
