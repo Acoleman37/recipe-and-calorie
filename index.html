@@ -23,15 +23,39 @@
         <section>
         </section>
       <div id="bodycontainer" class="container"> 
-        <section>
+          <section>
             <div id="box1" class="conatainer"> 
               <h3>Look up your Recipe</h3>
-            </div> 
+              <input id="searchTerm" type="text" placeholder="Enter search term" />
+              <button id="search">
+                Search
+              </button> 
+            </div>
           </section>
         
           <section>
               <div id="box2" class="conatainer">
                   <h3>See your Nutrient information</h3>
+                  <form data-bind="submit: doSomething" onsubmit="return false" multiple>
+                    <div class="form-group" >
+                          <label for="inputlg">What you have eaten today:</label>
+                              <select name="mealType" id="mealType">
+                                  <option value="Breakfast">Breakfast</option>
+                                  <option value="Lunch">Lunch</option>
+                                  <option value="Dinner">Dinner</option>
+                                  <option value="Snack">Snack</option>
+                              </select>
+                          <input class="form-control input-lg" id="inputlg" type="text" />
+                       <button type="text" onclick="myFunction()" class="btn btn-primary btn-lg">Add Food</button>
+                    </div>
+                    <div>
+                       Your Macros contain:
+                       <ol id="mealType">Breakfast</ol>
+                       <ol id=" ">Lunch</ol>
+                       <ol id=" ">Dinner</ol>
+                       <ol id=" ">Snack</ol>
+                    </div>
+                 </form>
               </div>
           </section>
         
@@ -41,10 +65,17 @@
                 </div>
           </section> 
       </div>
-      
+    
         <footer>
           <h4>Made by Alec, Nick, and Samantha</h4>
         </footer>
+      <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+      <script src="./assets/js/script.js"></script>
       </body>
-      
+      <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"></script>
+      <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+      <script src="./assets/js/script.js"></script>
       </html>
