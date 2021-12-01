@@ -1,0 +1,60 @@
+header{
+    position: relative;
+}
+
+h1{
+    text-align: center;
+    color: slategray;
+}
+
+li{
+    text-decoration: underline;
+    font-size: large;
+    color: whitesmoke;
+}
+#searchbar{
+    height: fit-content;
+    width: 800px;
+
+}
+
+div{
+    height: fit-content;
+    width: fit-content;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 5px solid #555;
+    border-color: lightblue;
+    margin: 20px;
+}
+
+#bodycontainer{
+    height: 500px;
+    width: 800px;
+    padding: 15px;
+    background-color: cadetblue;
+    position: relative;
+}
+
+#box1{
+    height: 300px;
+    width: 325px;
+    position: absolute;
+    top: 0;
+    left: 15px;
+}
+
+#box2{
+    height: 300px;
+    width: 325px;
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+
+#box3{
+    height: 100px;
+    width: 725px;
+    position: absolute;
+    bottom: 20px;
+}
