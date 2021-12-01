@@ -101,8 +101,8 @@ function recipeCards(recipeData) {
     var currentTime = moment().format("MMM Do YY");
     var e = document.getElementById("mealType2");
     var test2 = e.value;
-    console.log("test: " + test2);
     mealSplit.push(currentTime);
+    mealSplit.push(test2);
     mealTracker.push(mealSplit);
     localStorage.setItem("meals", JSON.stringify(mealTracker));
   });
