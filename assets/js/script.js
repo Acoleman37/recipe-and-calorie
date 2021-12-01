@@ -5,6 +5,7 @@ var input1 = "";
 var recipeData = [];
 var cardBox = document.getElementById("content");
 var mealTracker = [];
+var savedMeals = [];
 
 //Add an event listener to the button that runs the function sendApiRequest when it is clicked
 searchButton.addEventListener("click", () => {
@@ -106,6 +107,37 @@ function recipeCards(recipeData) {
     mealTracker.push(mealSplit);
     localStorage.setItem("meals", JSON.stringify(mealTracker));
   });
+};
+
+var trackerLoader = function() {
+  var savedMeals = localStorage.getItem("meals");
+  savedMeals = JSON.parse(savedMeals);
+  console.log(savedMeals);
+  if (!savedMeals) {
+    return false;
+  }
+  // for loop looking at savedMeals.length
+  for (var i = 0; i < savedMeals.length; i++) {
+    // save the vars for each item in each part of the array
+    var loadedMeals = savedMeals[i];
+    var loadedCals = loadedMeals[0];
+    var loadedFats = loadedMeals[1];
+    var loadedProtien = loadedMeals[2];
+    var loadedTime = loadedMeals[3];
+    var loadedMealType = loadedMeals[4];
+    var loadedOptions = $(".parent");
+    var menuLoader = $("#mealDate");
+    menuLoader.append("<option>" + loadedTime + "</option>")
+    loadedOptions.append("<li class=`hide`>" + loadedMealType + ": </li>");
+
+    
+  }
+  
+  // Add the current date to the option section
+  // then append each item it it's appropriate section
+  // add the meal type to the start of the append, maybe another for loop
+
+
 }
 
 // This function gets the user input and then jQuery interacts with the API and append the results to the food log.
@@ -143,3 +175,4 @@ function myFunction() {
     },
   });
 }
+trackerLoader();

@@ -28,6 +28,10 @@ div{
     margin: 20px;
 }
 
+.hide {
+    display: none;
+}
+
 #bodycontainer{
     height: 500px;
     width: 800px;
