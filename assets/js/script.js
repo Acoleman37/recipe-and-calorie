@@ -37,7 +37,6 @@ async function sendApiRequest() {
 function recipeCards(recipeData) {
   console.log(recipeData);
   for (var i = 0; i < 5; i++) {
-    console.log(recipeData);
     var calorieInfo = Math.round(recipeData[i].recipe.calories);
     var fatInfo = Math.round(
       recipeData[i].recipe.totalNutrients.FAT.quantity
@@ -100,6 +99,9 @@ function recipeCards(recipeData) {
     var mealTime = $(this).prev().text().trim();
     var mealSplit = mealTime.split("|");
     var currentTime = moment().format("MMM Do YY");
+    var e = document.getElementById("mealType2");
+    var test2 = e.value;
+    console.log("test: " + test2);
     mealSplit.push(currentTime);
     mealTracker.push(mealSplit);
     localStorage.setItem("meals", JSON.stringify(mealTracker));
