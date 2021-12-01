@@ -73,7 +73,7 @@ function recipeCards(recipeData){
   $(document).on('click','#addMeal',function() {
     var mealTime = $(this).prev().text().trim();
     var mealSplit = mealTime.split("|");
-    var currentTime = moment().format("MMM Do YY")
+    var currentTime = moment().format("MMM Do YY");
     mealSplit.push(currentTime);
     mealTracker.push(mealSplit);
     localStorage.setItem("meals", JSON.stringify(mealTracker));
