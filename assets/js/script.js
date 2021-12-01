@@ -1,3 +1,74 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var searchButton = document.querySelector("#search");
 var mealButton = document.getElementById("addmeal");
 var test1 = document.getElementById("searchTerm");
@@ -80,10 +151,3 @@ function recipeCards(recipeData){
     })
   };
 
-//  $(".cardbody").on("click", "button", function(e) {
-//     // var testy1 = $(this).closest("#addMeal");
-//     if(e.target && e.target.id== 'addMeal') {
-//     }
-//   });
-  
-  // Add event listener that looks at the add meal button, $this > send things to an array to be stored
