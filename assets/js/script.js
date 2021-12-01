@@ -127,10 +127,16 @@ var trackerLoader = function() {
     var loadedMealType = loadedMeals[4];
     var loadedOptions = $(".parent");
     var menuLoader = $("#mealDate");
-    menuLoader.append("<option>" + loadedTime + "</option>")
-    loadedOptions.append("<li class=`hide`>" + loadedMealType + ": </li>");
-
-    
+    menuLoader.append("<option data-show=`>" + loadedTime + "</option>")
+    loadedOptions.append(
+      "<li class=`hide`> <strong>"
+       + loadedMealType + 
+       ": </strong>"+
+        loadedCals +
+         loadedFats +
+          loadedProtien + 
+        "</li>"
+      );
   }
   
   // Add the current date to the option section
