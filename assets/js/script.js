@@ -98,8 +98,6 @@ function myFunction(){
       'processData': false,
       data: JSON.stringify({"query": encodedFood}),
       success: function(response) {
-
-<<<<<<< HEAD
           // create the LI
           // create the text for the LI
           // append the LI to myOl element
@@ -111,15 +109,3 @@ function myFunction(){
       }
   });
 }
-=======
-            // create the LI
-            // create the text for the LI
-            // append the LI to myOl element
-            // let mealType = dropdown menu result #breakfast
-            $ (mealType).append("<li>"+response.foods[0].food_name  +" Calories  " + response.foods[0].nf_calories + " Fat  " + response.foods[0].nf_total_fat + " Protein " + response.foods[0].nf_protein+"</li>" );
-        
-        }
-
-    });
-}};
->>>>>>> 83c69a4271c1898d987f6f91aa5255101f4684a3
