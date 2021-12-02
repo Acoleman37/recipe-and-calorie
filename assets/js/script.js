@@ -7,8 +7,8 @@ var cardBox = document.getElementById("content");
 var mealTracker = [];
 
 //Add an event listener to the button that runs the function sendApiRequest when it is clicked
-searchButton.addEventListener("click", () => {
-  sendApiRequest();
+searchButton.addEventListener("click", (e) => {
+  sendApiRequest(e);
 });
 
 test1.addEventListener("keyup", (e) => {
@@ -16,19 +16,20 @@ test1.addEventListener("keyup", (e) => {
 });
 
 //An asynchronous function to fetch data from the API.
-async function sendApiRequest() {
+async function sendApiRequest(e) {
   let APP_ID = "a997cc81";
   let API_KEY = "199a564fa6633d7eebfa17053742119c";
   let response = await fetch(
     `https://api.edamam.com/search?app_id=` + APP_ID + `&app_key=` + API_KEY + `&count=6&q=` + input1);
   let data = await response.json();
   var recipeData = data.hits;
-  recipeCards(recipeData);
+  recipeCards(recipeData, e);
 }
 
 //function that does something with the data received from the API. The name of the function should be customized to whatever you are doing with the data
-function recipeCards(recipeData){
-  for (var i = 0; i < 3; i++) {
+function recipeCards(recipeData, e){
+  e.stopImmediatePropagation();
+  for (var i = 0; i < 6; i++) {
     var calorieInfo = Math.round((recipeData[i].recipe.calories));
     var fatInfo = Math.round(
       recipeData[i].recipe.totalNutrients.FAT.quantity
@@ -55,7 +56,7 @@ function recipeCards(recipeData){
           `</span>
           </div>
           <div class="card-content">
-            <p> Calories: ` +
+          <p> Calories: ` +
           singleServing +
           `kcal | Fat: ` +
           fatInfo +
@@ -66,7 +67,7 @@ function recipeCards(recipeData){
           <div class="card-action">
             <a href=` +
           recipeURL +
-          `>This is a link</a>
+          `>Recipe Page</a>
         <button id="addMeal">Add Meal to Tracker</button>
           </div>
         </div>

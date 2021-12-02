@@ -62,10 +62,17 @@ header{
     margin-left: 3vw;
 }
 
+.recipeImages {
+    max-height: 300px;
+    max-width: 300px;
+}
+
 .recipeCardsGen {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+
 
 #box2{
     height: 65%;
