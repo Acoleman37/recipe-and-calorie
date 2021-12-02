@@ -6,28 +6,31 @@ var recipeData = [];
 var cardBox = document.getElementById("content");
 var mealTracker = [];
 
-
 //Add an event listener to the button that runs the function sendApiRequest when it is clicked
-searchButton.addEventListener("click", ()=>{
-  sendApiRequest()
-})
+searchButton.addEventListener("click", () => {
+  sendApiRequest();
+});
 
-test1.addEventListener('keyup', (e) => {
+test1.addEventListener("keyup", (e) => {
   input1 = e.target.value;
 });
 
-
-
 //An asynchronous function to fetch data from the API.
-async function sendApiRequest(){
+async function sendApiRequest() {
   let APP_ID = "a997cc81";
   let API_KEY = "199a564fa6633d7eebfa17053742119c";
-  let response = await fetch(`https://api.edamam.com/search?app_id=` + APP_ID + `&app_key=` + API_KEY + `&q=` + input1);
+  let response = await fetch(
+    `https://api.edamam.com/search?app_id=` +
+      APP_ID +
+      `&app_key=` +
+      API_KEY +
+      `&q=` +
+      input1
+  );
   let data = await response.json();
   var recipeData = data.hits;
   recipeCards(recipeData);
 }
-
 
 //function that does something with the data received from the API. The name of the function should be customized to whatever you are doing with the data
 function recipeCards(recipeData){
@@ -39,32 +42,51 @@ function recipeCards(recipeData){
     var recipePicture = recipeData[i].recipe.image;
     var recipeURL = recipeData[i].recipe.url;
     var recipeServingSize = recipeData[i].recipe.yield;
-    var singleServing = Math.round((calorieInfo / recipeServingSize));
+    var singleServing = Math.round(calorieInfo / recipeServingSize);
     var recipeName = recipeData[i].recipe.label;
     var recipeType = recipeData[i].recipe.dishType[0];
     // Needs for each to break down the lines
-    cardBox.insertAdjacentHTML("afterbegin", `<div class="card">
-    <a href="` + recipeURL + `">
+    cardBox.insertAdjacentHTML(
+      "afterbegin",
+      `<div class="card">
+    <a href="` +
+        recipeURL +
+        `">
     <div class="card-header">
-      <img src="` + recipePicture + `" alt="" />
+      <img src="` +
+        recipePicture +
+        `" alt="" />
     </div>
     </a>
     <div class="card-body">
-      <span class="tag tag-teal">` + recipeType + `</span>
+      <span class="tag tag-teal">` +
+        recipeType +
+        `</span>
       <h4>
-        ` + recipeName + `
+        ` +
+        recipeName +
+        `
       </h4>
       <h5> Ingredients: </h5>
       <p>
-        ` + recipeInstructions + `
+        ` +
+        recipeInstructions +
+        `
       </p>
       <p>
-      Calories: ` + singleServing + `kcal | Carbs: ` + carbInfo + `g | Protien: ` + protienInfo + `g
+      Calories: ` +
+        singleServing +
+        `kcal | Fat: ` +
+        fatInfo +
+        `g | Protien: ` +
+        protienInfo +
+        `g
       </p>
       <button id="addMeal">Add Meal to Tracker</button>
       </div>
     </div>
-  </div>`)
+  </div>`
+    );
   }
 
   $(document).on("click", "#addMeal", function (e) {
@@ -79,6 +101,7 @@ function recipeCards(recipeData){
     mealTracker.push(mealSplit);
     localStorage.setItem("meals", JSON.stringify(mealTracker));
   });
+}
 
 // This function gets the user input and then jQuery interacts with the API and append the results to the food log. 
 function myFunction(){
