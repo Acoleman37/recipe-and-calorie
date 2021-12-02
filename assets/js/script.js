@@ -70,15 +70,17 @@ function recipeCards(recipeData){
   </div>`)
   }
 
-  $(document).on('click','#addMeal',function() {
+  $(document).on("click", "#addMeal", function () {
     var mealTime = $(this).prev().text().trim();
     var mealSplit = mealTime.split("|");
-    var currentTime = moment().format("MMM Do YY")
+    var currentTime = moment().format("MMM Do YY");
+    var e = document.getElementById("mealType2");
+    var test2 = e.value;
     mealSplit.push(currentTime);
+    mealSplit.push(test2);
     mealTracker.push(mealSplit);
     localStorage.setItem("meals", JSON.stringify(mealTracker));
-    })
-  };
+  });
 
 // This function gets the user input and then jQuery interacts with the API and append the results to the food log. 
 function myFunction(){
