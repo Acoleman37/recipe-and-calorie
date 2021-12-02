@@ -1,5 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
+section{
+    width: 90%;
+    align-items: center;
+    margin-left: 30px;
+}
+
 header{
+    width: 90%;
     position: relative;
+    background-color: cadetblue;
+    align-items: center;
+    margin-left: 30px;
 }
 
 h1{
@@ -19,42 +33,70 @@ li{
 }
 
 div{
-    height: fit-content;
-    width: fit-content;
-    padding: 10px;
-    background-color: whitesmoke;
-    border: 5px solid #555;
-    border-color: lightblue;
-    margin: 20px;
+    /* height: fit-content;
+    width: fit-content; */
+    /* padding: 10px; */
+    background-color: grey;
+    /* border: 5px solid #555; */
+    /* border-color: lightblue; */
 }
 
 #bodycontainer{
-    height: 500px;
-    width: 800px;
-    padding: 15px;
-    background-color: cadetblue;
+    height: 100vh;
+    width: 80%;
+    /* padding: 15px; */
     position: relative;
+    background-color: cadetblue;
 }
 
 #box1{
-    height: 300px;
-    width: 325px;
+    height: 45%;
+    width: 45%;
     position: absolute;
     top: 0;
     left: 15px;
+    margin: 20px;
 }
 
 #box2{
-    height: 300px;
-    width: 325px;
+    height: 75%;
+    width: 45%;
     position: absolute;
+    padding-bottom: 15px;
     top: 0;
     right: 20px;
+    margin: 20px;
 }
 
 #box3{
     height: 100px;
-    width: 725px;
+    width: 70%;
     position: absolute;
     bottom: 20px;
+    margin: 20px;
 }
+
+
+
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    /* header{
+        background-color: hotpink;
+    } */
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
