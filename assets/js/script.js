@@ -30,6 +30,8 @@ async function sendApiRequest(e) {
 //function that does something with the data received from the API. The name of the function should be customized to whatever you are doing with the data
 function recipeCards(recipeData, e){
   e.stopImmediatePropagation()
+  var element = $(".recipeCardsGen");
+  element.remove();
   for (var i = 0; i < 6; i++) {
     var calorieInfo = Math.round((recipeData[i].recipe.calories));
     var fatInfo = Math.round(
