@@ -26,15 +26,12 @@ async function sendApiRequest(){
   let data = await response.json();
   var recipeData = data.hits;
   recipeCards(recipeData);
-  // console.log(testy);
 }
 
 
 //function that does something with the data received from the API. The name of the function should be customized to whatever you are doing with the data
 function recipeCards(recipeData){
-  console.log(recipeData);
   for (var i = 0; i < 5; i++) {
-    console.log(recipeData);
     var calorieInfo = Math.round((recipeData[i].recipe.calories));
     var carbInfo = Math.round((recipeData[i].recipe.totalNutrients.CHOCDF.quantity));
     var protienInfo = Math.round((recipeData[i].recipe.totalNutrients.PROCNT.quantity));
