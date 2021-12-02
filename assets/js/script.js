@@ -20,13 +20,7 @@ async function sendApiRequest() {
   let APP_ID = "a997cc81";
   let API_KEY = "199a564fa6633d7eebfa17053742119c";
   let response = await fetch(
-    `https://api.edamam.com/search?app_id=` +
-      APP_ID +
-      `&app_key=` +
-      API_KEY +
-      `&q=` +
-      input1
-  );
+    `https://api.edamam.com/search?app_id=` + APP_ID + `&app_key=` + API_KEY + `&count=6&q=` + input1);
   let data = await response.json();
   var recipeData = data.hits;
   recipeCards(recipeData);
@@ -34,7 +28,7 @@ async function sendApiRequest() {
 
 //function that does something with the data received from the API. The name of the function should be customized to whatever you are doing with the data
 function recipeCards(recipeData){
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < 3; i++) {
     var calorieInfo = Math.round((recipeData[i].recipe.calories));
     var fatInfo = Math.round(
       recipeData[i].recipe.totalNutrients.FAT.quantity
@@ -49,45 +43,73 @@ function recipeCards(recipeData){
     var recipeType = recipeData[i].recipe.dishType[0];
     // Needs for each to break down the lines
     cardBox.insertAdjacentHTML(
-      "afterbegin",
-      `<div class="card">
-    <a href="` +
-        recipeURL +
-        `">
-    <div class="card-header">
-      <img src="` +
-        recipePicture +
-        `" alt="" />
-    </div>
-    </a>
-    <div class="card-body">
-      <span class="tag tag-teal">` +
-        recipeType +
-        `</span>
-      <h4>
-        ` +
-        recipeName +
-        `
-      </h4>
-      <h5> Ingredients: </h5>
-      <p>
-        ` +
-        recipeInstructions +
-        `
-      </p>
-      <p>
-      Calories: ` +
-        singleServing +
-        `kcal | Fat: ` +
-        fatInfo +
-        `g | Protien: ` +
-        protienInfo +
-        `g
-      </p>
-      <button id="addMeal">Add Meal to Tracker</button>
+      "afterbegin", `  <div class="row">
+      <div class="col s3 m3">
+        <div class="card">
+          <div class="card-image">
+            <img class="recipeImages" src="` +
+          recipePicture +
+          `" alt="" />
+            <span class="card-title">` +
+          recipeName +
+          `</span>
+          </div>
+          <div class="card-content">
+            <p> Calories: ` +
+          singleServing +
+          `kcal | Fat: ` +
+          fatInfo +
+          `g | Protien: ` +
+          protienInfo +
+          `g</p>
+          </div>
+          <div class="card-action">
+            <a href=` +
+          recipeURL +
+          `>This is a link</a>
+        <button id="addMeal">Add Meal to Tracker</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>`
+    </div>`
+  //     `<div class="card">
+  //   <a href="` +
+  //       recipeURL +
+  //       `">
+  //   <div class="card-header">
+  //     <img src="` +
+  //       recipePicture +
+  //       `" alt="" />
+  //   </div>
+  //   </a>
+  //   <div class="card-body">
+  //     <span class="tag tag-teal">` +
+  //       recipeType +
+  //       `</span>
+  //     <h4>
+  //       ` +
+  //       recipeName +
+  //       `
+  //     </h4>
+  //     <h5> Ingredients: </h5>
+  //     <p>
+  //       ` +
+  //       recipeInstructions +
+  //       `
+  //     </p>
+  //     <p>
+  //     Calories: ` +
+  //       singleServing +
+  //       `kcal | Fat: ` +
+  //       fatInfo +
+  //       `g | Protien: ` +
+  //       protienInfo +
+  //       `g
+  //     </p>
+  //     <button id="addMeal">Add Meal to Tracker</button>
+  //     </div>
+  //   </div>
+  // </div>`
     );
   }
 

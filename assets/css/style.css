@@ -35,6 +35,11 @@ header{
     display: none;
 }
 
+.recipeImages {
+    height: 150px;
+    width: 30px;
+}
+
 #bodycontainer{
     height: 100vh;
     width: 90%;
