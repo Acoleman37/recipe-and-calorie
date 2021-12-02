@@ -5,6 +5,7 @@ var input1 = "";
 var recipeData = [];
 var cardBox = document.getElementById("content");
 var mealTracker = [];
+var savedMeals = [];
 
 //Add an event listener to the button that runs the function sendApiRequest when it is clicked
 searchButton.addEventListener("click", () => {
@@ -35,9 +36,13 @@ async function sendApiRequest() {
 //function that does something with the data received from the API. The name of the function should be customized to whatever you are doing with the data
 function recipeCards(recipeData){
   for (var i = 0; i < 5; i++) {
-    var calorieInfo = Math.round((recipeData[i].recipe.calories));
-    var carbInfo = Math.round((recipeData[i].recipe.totalNutrients.CHOCDF.quantity));
-    var protienInfo = Math.round((recipeData[i].recipe.totalNutrients.PROCNT.quantity));
+    var calorieInfo = Math.round(recipeData[i].recipe.calories);
+    var fatInfo = Math.round(
+      recipeData[i].recipe.totalNutrients.FAT.quantity
+    );
+    var protienInfo = Math.round(
+      recipeData[i].recipe.totalNutrients.PROCNT.quantity
+    );
     var recipeInstructions = recipeData[i].recipe.ingredientLines;
     var recipePicture = recipeData[i].recipe.image;
     var recipeURL = recipeData[i].recipe.url;
@@ -88,6 +93,50 @@ function recipeCards(recipeData){
   </div>`
     );
   }
+};
+
+$(document).on("click", "#addMeal", function (e) {
+  e.stopImmediatePropagation();
+  var mealTime = $(this).prev().text().trim();
+  var mealSplit = mealTime.split("|");
+  var currentTime = moment().format("MMM Do YY");
+  var mealType2 = document.getElementById("mealType2");
+  var saveMealType2 = mealType2.value;
+  mealSplit.push(saveMealType2);
+  mealSplit.push(currentTime);
+  mealTracker.push(mealSplit);
+  console.log(mealTracker);
+  localStorage.setItem("meals", JSON.stringify(mealTracker));
+});
+
+var trackerLoader = function() {
+  var savedMeals = localStorage.getItem("meals");
+  var j = 0;
+  var loadedOptions = $(".parent");
+  savedMeals = JSON.parse(savedMeals);
+
+  if (!savedMeals) {
+    return false;
+  }
+  var loadedTime = loadedMeals[4];
+  loadedOptions.append("<li> " + loadedTime + "</br>");
+  // Update array to have date saved as the object, and things eating saved inside of it
+
+  // for loop looking at savedMeals.length
+  for (var i = 0; i < savedMeals.length; i++) {
+    // save the vars for each item in each part of the array
+    var loadedMeals = savedMeals[i];
+      while (j < 4) {
+      var loadedInfo = loadedMeals[j];
+      loadedOptions.append(loadedInfo);
+      j++;
+    }
+    }
+};
+  
+  // Add the current date to the option section
+  // then append each item it it's appropriate section
+  // add the meal type to the start of the append, maybe another for loop
 
   $(document).on("click", "#addMeal", function (e) {
     e.stopImmediatePropagation();
@@ -102,6 +151,7 @@ function recipeCards(recipeData){
     localStorage.setItem("meals", JSON.stringify(mealTracker));
   });
 }
+
 
 // This function gets the user input and then jQuery interacts with the API and append the results to the food log. 
 function myFunction(){

@@ -1,10 +1,17 @@
 *{
     box-sizing: border-box;
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;
   }
+
+li{
+    text-decoration: underline;
+    font-size: large;
+    color: rgb(0, 0, 0);
+}
 
 section{
     width: 90%;
@@ -22,6 +29,10 @@ header{
 
 #logo{
     background-color: seashell;
+}
+
+.hide {
+    display: none;
 }
 
 #bodycontainer{
