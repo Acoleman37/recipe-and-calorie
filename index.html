@@ -44,13 +44,8 @@
           </section>
         
           <section>
-<<<<<<< HEAD
               <div id="box2" class="grid-conatainer">
                   <h4 class="brown-text">See your Nutrient information</h4>
-=======
-              <div id="box2" class="container">
-                  <h3>See your Nutrient information</h3>
->>>>>>> 62755eb54d0dd431a323f2c41507188387ce9a41
                   <form data-bind="submit: doSomething" onsubmit="return false" multiple>
                     <div class="form-group" >
                           <label for="inputlg">What you have eaten today:</label>
@@ -58,21 +53,19 @@
                                   <option value="Breakfast">Breakfast</option>
                                   <option value="Lunch">Lunch</option>
                                   <option value="Dinner">Dinner</option>
-                                  <option value="Snack">Snack</option>
+                                  <option value="Snacks">Snacks</option>
                               </select>
                           <input class="form-control input-lg" id="inputlg" type="text" />
                        <button type="text" onclick="myFunction()" class="btn btn-primary btn-lg">Add Food</button>
                     </div>
-                    
-                    <div>
-                       Your Macros contain:
-                       <ol id=" ">Breakfast</ol>
-                       <ol id=" ">Lunch</ol>
-                       <ol id=" ">Dinner</ol>
-                       <ol id=" ">Snack</ol>
-                    </div>
                  </form>
-              </div>
+                <div>
+                 Your Macros contain:
+                 <ol data-meal-type="Breakfast">Breakfast</ol>
+                 <ol data-meal-type="Lunch">Lunch</ol>
+                 <ol data-meal-type="Dinner">Dinner</ol>
+                 <ol data-meal-type="Snacks">Snacks</ol>
+                </div>
           </section>
         
           <section>
