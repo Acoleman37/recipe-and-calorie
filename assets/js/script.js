@@ -67,7 +67,8 @@ function recipeCards(recipeData){
   </div>`)
   }
 
-  $(document).on("click", "#addMeal", function () {
+  $(document).on("click", "#addMeal", function (e) {
+    e.stopImmediatePropagation();
     var mealTime = $(this).prev().text().trim();
     var mealSplit = mealTime.split("|");
     var currentTime = moment().format("MMM Do YY");
