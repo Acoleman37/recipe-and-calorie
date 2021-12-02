@@ -17,6 +17,7 @@ test1.addEventListener("keyup", (e) => {
 
 //An asynchronous function to fetch data from the API.
 async function sendApiRequest(e) {
+  e.stopImmediatePropagation()
   let APP_ID = "a997cc81";
   let API_KEY = "199a564fa6633d7eebfa17053742119c";
   let response = await fetch(
@@ -28,7 +29,7 @@ async function sendApiRequest(e) {
 
 //function that does something with the data received from the API. The name of the function should be customized to whatever you are doing with the data
 function recipeCards(recipeData, e){
-  e.stopImmediatePropagation();
+  e.stopImmediatePropagation()
   for (var i = 0; i < 6; i++) {
     var calorieInfo = Math.round((recipeData[i].recipe.calories));
     var fatInfo = Math.round(
