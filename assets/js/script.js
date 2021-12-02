@@ -43,7 +43,7 @@ function recipeCards(recipeData){
     var recipeType = recipeData[i].recipe.dishType[0];
     // Needs for each to break down the lines
     cardBox.insertAdjacentHTML(
-      "afterbegin", `  <div class="row">
+      "afterbegin", `  <div class="recipeCardsGen">
       <div class="col s3 m3">
         <div class="card">
           <div class="card-image">
