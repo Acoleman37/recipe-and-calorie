@@ -98,6 +98,7 @@ function myFunction(){
       'processData': false,
       data: JSON.stringify({"query": encodedFood}),
       success: function(response) {
+
           // create the LI
           // create the text for the LI
           // append the LI to myOl element
