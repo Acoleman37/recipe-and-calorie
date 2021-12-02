@@ -26,15 +26,12 @@ async function sendApiRequest(){
   let data = await response.json();
   var recipeData = data.hits;
   recipeCards(recipeData);
-  // console.log(testy);
 }
 
 
 //function that does something with the data received from the API. The name of the function should be customized to whatever you are doing with the data
 function recipeCards(recipeData){
-  console.log(recipeData);
   for (var i = 0; i < 5; i++) {
-    console.log(recipeData);
     var calorieInfo = Math.round((recipeData[i].recipe.calories));
     var carbInfo = Math.round((recipeData[i].recipe.totalNutrients.CHOCDF.quantity));
     var protienInfo = Math.round((recipeData[i].recipe.totalNutrients.PROCNT.quantity));
@@ -70,15 +67,18 @@ function recipeCards(recipeData){
   </div>`)
   }
 
-  $(document).on('click','#addMeal',function() {
+  $(document).on("click", "#addMeal", function (e) {
+    e.stopImmediatePropagation();
     var mealTime = $(this).prev().text().trim();
     var mealSplit = mealTime.split("|");
-    var currentTime = moment().format("MMM Do YY")
+    var currentTime = moment().format("MMM Do YY");
+    var e = document.getElementById("mealType2");
+    var test2 = e.value;
     mealSplit.push(currentTime);
+    mealSplit.push(test2);
     mealTracker.push(mealSplit);
     localStorage.setItem("meals", JSON.stringify(mealTracker));
-    })
-  };
+  });
 
 // This function gets the user input and then jQuery interacts with the API and append the results to the food log. 
 function myFunction(){
@@ -99,6 +99,7 @@ function myFunction(){
       data: JSON.stringify({"query": encodedFood}),
       success: function(response) {
 
+<<<<<<< HEAD
           // create the LI
           // create the text for the LI
           // append the LI to myOl element
@@ -110,3 +111,15 @@ function myFunction(){
       }
   });
 }
+=======
+            // create the LI
+            // create the text for the LI
+            // append the LI to myOl element
+            // let mealType = dropdown menu result #breakfast
+            $ (mealType).append("<li>"+response.foods[0].food_name  +" Calories  " + response.foods[0].nf_calories + " Fat  " + response.foods[0].nf_total_fat + " Protein " + response.foods[0].nf_protein+"</li>" );
+        
+        }
+
+    });
+}};
+>>>>>>> 83c69a4271c1898d987f6f91aa5255101f4684a3
