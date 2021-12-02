@@ -36,7 +36,9 @@ async function sendApiRequest() {
 function recipeCards(recipeData){
   for (var i = 0; i < 5; i++) {
     var calorieInfo = Math.round((recipeData[i].recipe.calories));
-    var carbInfo = Math.round((recipeData[i].recipe.totalNutrients.CHOCDF.quantity));
+    var fatInfo = Math.round(
+      recipeData[i].recipe.totalNutrients.FAT.quantity
+    );
     var protienInfo = Math.round((recipeData[i].recipe.totalNutrients.PROCNT.quantity));
     var recipeInstructions = recipeData[i].recipe.ingredientLines;
     var recipePicture = recipeData[i].recipe.image;
