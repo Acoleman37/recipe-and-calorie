@@ -7,6 +7,11 @@
     grid-template-columns: auto auto auto auto;
   }
 
+.responsive-img{
+    max-width: 100%;
+    height: 100px;
+}
+
 li{
     text-decoration: underline;
     font-size: large;
@@ -17,7 +22,9 @@ section{
     width: 90%;
     align-items: center;
     margin-left: 30px;
+    background-color: rgba(5, 160, 187, 0.315);
 }
+
 
 header{
     width: 80%;
@@ -44,7 +51,7 @@ header{
 
 #box1{
     height: 60vw;
-    width: 63vw;
+    width: 82vw;
     position: absolute;
     top: 0;
     left: 15px;
@@ -83,14 +90,14 @@ header{
 }
 
 #box3{
-    height: 22%;
+    /* height: 22%;
     width: 93%;
     position: absolute;
     bottom: 20px;
-    margin-left: 1%;
+    margin-left: 1%; */
 
     background-color: seashell;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
 }
 
 body {
