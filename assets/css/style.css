@@ -31,10 +31,9 @@ header{
     background-color: seashell;
 }
 
-.hide {
-    display: none;
+.card-text {
+    text-shadow: black;
 }
-
 
 #bodycontainer{
     height: 100vh;

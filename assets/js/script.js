@@ -54,9 +54,9 @@ function recipeCards(recipeData, e){
             <img class="recipeImages" src="` +
           recipePicture +
           `" alt="" />
-            <span class="card-title">` +
+            <span class="card-title"> <p class="card-text"><strong>` +
           recipeName +
-          `</span>
+          `</strong></p></span>
           </div>
           <div class="card-content">
           <p> Calories: ` +
