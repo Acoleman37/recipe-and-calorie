@@ -44,14 +44,19 @@ header{
 
 #bodycontainer{
     height: 130vh;
-    width: 90%;
+    width: 100%;
     position: relative;
     background-color: rgba(149, 223, 233, 0.644);
 }
 
 #box1{
+<<<<<<< HEAD
     height: 60vw;
     width: 82vw;
+=======
+    height: 62vw;
+    width: 65vw;
+>>>>>>> 425dbcba2914c57d3e07cdd5705600e5379a992c
     position: absolute;
     top: 0;
     left: 15px;
@@ -74,7 +79,7 @@ header{
 }
 
 .recipeCardsGen {
-    padding-left: 35px;
+    padding-left: 15px;
     padding-right: 10px;
 }
 
@@ -82,9 +87,10 @@ header{
 
 #box2{
     height: 65%;
-    width: 45%;
+    width: 100%;
     padding-bottom: 15px;
-    margin: 20px;
+    margin-left: 40px;
+    margin-bottom: 20px;
     background-color: seashell;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
