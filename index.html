@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Recipes and Calories </title>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-      <link rel="stylesheet" href="./assets/css/style.css" />
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <title>Recipes and Calories </title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
@@ -21,91 +21,83 @@
             <!-- <img class="responsive-img" src="banner.jpg"> -->
             <a href="#!" id="logo" class="material-icons brown-text"></a>
             <ul class="right hide-on-med-and-down">
-<<<<<<< HEAD
+
               <li><a href="#Look-up-your-Recipe" class="brown-text">Look up your Recipe</a></li>
               <li><a href="#Nutrient-Information" class="brown-text">Nutrient Information</a></li>
               <!-- <li><a class="brown-text">Track your Progress</a></li> -->
-              
-=======
-              <li><a class="brown-text" href="#bodycontainer">Look up your Recipe</a></li>
-              <li><a class="brown-text" href="#box2">Nutrient Information</a></li>
-              <li><a class="brown-text" href="#tracker">Track your Progress</a></li>
->>>>>>> 425dbcba2914c57d3e07cdd5705600e5379a992c
             </ul>
           </div>
           <div class="nav-content">
             <span class="nav-title"><h1 class="brown-text">Eat Better Not Less</h1></span>
-          
-            </a>
           </div>
         </nav>
     </section>
   </header>
 
   <div id="bodycontainer" class="container"> 
-      <section>
-        <div id="box1" class="grid-conatainer"> 
-          <h4 class="brown-text">Look up your Recipe</h4>
-          <input id="searchTerm" type="text" placeholder="Enter search term" />
-          <button id="search">
-            Search
-          <select name="mealType" id="mealType2">
-            <option value="Breakfast">Breakfast</option>
-            <option value="Lunch">Lunch</option>
-            <option value="Dinner">Dinner</option>
-            <option value="Snack">Snack</option>
-          </select>
+    <section>
+      <div id="box1" class="grid-conatainer"> 
+        <h4 class="brown-text">Look up your Recipe</h4>
+        <input id="searchTerm" type="text" placeholder="Enter search term" />
+        <button id="search">Search</button>
+        <select name="mealType" id="mealType2">
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Snack">Snack</option>
+        </select>
 
-        </div>
-        <div id="content"></div>
-      </section>
+      </div>
+      <div id="content"></div>
+    </section>
   </div>
       
-    <section>
-        <div id="box2" class="grid-conatainer">
-            <h4 class="brown-text">Nutrient information</h4>
-            <form data-bind="submit: doSomething" onsubmit="return false" multiple>
-              <div class="form-group" >
-                    <label for="inputlg">What you have eaten today:</label>
-                        <select name="mealType" id="mealType">
-                            <option value="Breakfast">Breakfast</option>
-                            <option value="Lunch">Lunch</option>
-                            <option value="Dinner">Dinner</option>
-                            <option value="Snacks">Snacks</option>
-                        </select>
-                    <input class="form-control input-lg" id="inputlg" type="text" />
-                  <button type="text" onclick="myFunction()" class="btn btn-primary btn-lg">Add Food</button>
-              </div>
-            </form>
-          <div>
-            <p>Your Macros contain:</p>
-            <ol data-meal-type="Breakfast"></ol>
-            <ol data-meal-type="Lunch"></ol>
-            <ol data-meal-type="Dinner"></ol>
-            <ol data-meal-type="Snacks"></ol>
-          </div>
-    </section>
-
-      <footer id="tracker" class="page-footer">
-        <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h4 class="brown-text">Eat Better Not Less</h4>
-              <p class="brown-text text-lighten-3">Made by Alec, Nick, and Sam</p>
-            </div>
-          </div>
+  <section>
+    <div id="box2" class="grid-conatainer">
+      <h4 class="brown-text">See your Nutrient information</h4>
+      <form data-bind="submit: doSomething" onsubmit="return false" multiple>
+        <div class="form-group" >
+          <label for="inputlg">What you have eaten today:</label>
+            <select name="mealType" id="mealType">
+              <option value="Breakfast">Breakfast</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Dinner">Dinner</option>
+              <option value="Snacks">Snacks</option>
+            </select>
+          <input class="form-control input-lg" id="inputlg" type="text" />
+          <button type="text" onclick="myFunction()" class="btn btn-primary btn-lg">Add Food</button>
         </div>
-      </footer>
+      </form>
+    <div>
+      <p>Your Macros contain:</p>
+      <ol data-meal-type="Breakfast">Breakfast</ol>
+      <ol data-meal-type="Lunch">Lunch</ol>
+      <ol data-meal-type="Dinner">Dinner</ol>
+      <ol data-meal-type="Snacks">Snacks</ol>
+    </div>
+  </section>
 
-      <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-      <script src="./assets/js/script.js"></script>
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
-                <script
-        src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-        crossorigin="anonymous"></script>
-      <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      <script src="./assets/js/script.js"></script>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h4 class="brown-text">Eat Better Not Less</h4>
+          <p class="brown-text text-lighten-3">Made by Alec, Nic, and Sam</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+
 </body>
 </html>
