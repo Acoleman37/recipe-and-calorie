@@ -98,6 +98,7 @@ function myFunction(){
   var text = document.getElementById('inputlg').value;
   var encodedFood = encodeURIComponent(text); 
   var mealType = $("#mealType").val();
+  var e = document.getElementById("mealType");
   // Ajax call to API and then appends the returned info to the food log. 
   $.ajax({
     url: `https://trackapi.nutritionix.com/v2/natural/nutrients`,
