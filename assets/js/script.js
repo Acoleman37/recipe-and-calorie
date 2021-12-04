@@ -76,44 +76,6 @@ function recipeCards(recipeData, e){
         </div>
       </div>
     </div>`
-  //     `<div class="card">
-  //   <a href="` +
-  //       recipeURL +
-  //       `">
-  //   <div class="card-header">
-  //     <img src="` +
-  //       recipePicture +
-  //       `" alt="" />
-  //   </div>
-  //   </a>
-  //   <div class="card-body">
-  //     <span class="tag tag-teal">` +
-  //       recipeType +
-  //       `</span>
-  //     <h4>
-  //       ` +
-  //       recipeName +
-  //       `
-  //     </h4>
-  //     <h5> Ingredients: </h5>
-  //     <p>
-  //       ` +
-  //       recipeInstructions +
-  //       `
-  //     </p>
-  //     <p>
-  //     Calories: ` +
-  //       singleServing +
-  //       `kcal | Fat: ` +
-  //       fatInfo +
-  //       `g | Protien: ` +
-  //       protienInfo +
-  //       `g
-  //     </p>
-  //     <button id="addMeal">Add Meal to Tracker</button>
-  //     </div>
-  //   </div>
-  // </div>`
     );
   }
 
