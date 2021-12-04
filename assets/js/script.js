@@ -6,10 +6,12 @@ var recipeData = [];
 var cardBox = document.getElementById("content");
 var mealTracker = [];
 var savedMeals = [];
+var newArr = [];
 
 //Add an event listener to the button that runs the function sendApiRequest when it is clicked
-searchButton.addEventListener("click", () => {
+searchButton.addEventListener("click", (e) => {
   sendApiRequest();
+  trackerLoader(e);
 });
 
 test1.addEventListener("keyup", (e) => {
@@ -67,7 +69,7 @@ function recipeCards(recipeData){
       <span class="tag tag-teal">` +
         recipeType +
         `</span>
-      <h4>
+      <h4 id="recipeName">
         ` +
         recipeName +
         `
@@ -97,42 +99,40 @@ function recipeCards(recipeData){
 
 $(document).on("click", "#addMeal", function (e) {
   e.stopImmediatePropagation();
-  var mealTime = $(this).prev().text().trim();
-  var mealSplit = mealTime.split("|");
-  var currentTime = moment().format("MMM Do YY");
+  var mealInfo = $(this).prev().text().trim();
+  var recipeName = $("#recipeName").text().trim();
+  var mealInfoSplit = mealInfo.split("|");
+  var currentTime = moment().format("MMM Do YY").toString();
   var mealType2 = document.getElementById("mealType2");
   var saveMealType2 = mealType2.value;
-  mealSplit.push(saveMealType2);
-  mealSplit.push(currentTime);
-  mealTracker.push(mealSplit);
-  console.log(mealTracker);
+  // adding meal type
+  mealInfoSplit.push(saveMealType2);
+  mealInfoSplit.push(recipeName)
+  // putting date into the tracker
+  mealTracker.push(mealInfoSplit);
   localStorage.setItem("meals", JSON.stringify(mealTracker));
 });
 
-var trackerLoader = function() {
+
+
+var trackerLoader = function(e) {
+  e.stopImmediatePropagation();
   var savedMeals = localStorage.getItem("meals");
-  var j = 0;
-  var loadedOptions = $(".parent");
+  console.log("savedMeals1: " + savedMeals);
   savedMeals = JSON.parse(savedMeals);
 
   if (!savedMeals) {
     return false;
   }
-  var loadedTime = loadedMeals[4];
-  loadedOptions.append("<li> " + loadedTime + "</br>");
-  // Update array to have date saved as the object, and things eating saved inside of it
 
-  // for loop looking at savedMeals.length
   for (var i = 0; i < savedMeals.length; i++) {
-    // save the vars for each item in each part of the array
-    var loadedMeals = savedMeals[i];
-      while (j < 4) {
-      var loadedInfo = loadedMeals[j];
-      loadedOptions.append(loadedInfo);
-      j++;
-    }
-    }
+    console.log("test: " + savedMeals);
+    savedMeals = savedMeals[i];
+    var $mealtypeContainer = $(`[data-meal-type=${savedMeals[3]}]`);
+    $mealtypeContainer.append("<li>" + savedMeals[3] + " " + savedMeals[4] + " " + savedMeals[0] + savedMeals[1] + savedMeals[2]+"</li>" );
+  }
 };
+
   
   // Add the current date to the option section
   // then append each item it it's appropriate section
@@ -143,14 +143,14 @@ var trackerLoader = function() {
     var mealTime = $(this).prev().text().trim();
     var mealSplit = mealTime.split("|");
     var currentTime = moment().format("MMM Do YY");
-    var e = document.getElementById("mealType2");
-    var test2 = e.value;
+    var w = document.getElementById("mealType2");
+    var test2 = w.value;
     mealSplit.push(currentTime);
     mealSplit.push(test2);
     mealTracker.push(mealSplit);
     localStorage.setItem("meals", JSON.stringify(mealTracker));
   });
-}
+
 
 
 // This function gets the user input and then jQuery interacts with the API and append the results to the food log. 
@@ -183,3 +183,7 @@ function myFunction(){
       }
   });
 }
+
+window.onload = function(e) {
+  trackerLoader(e);
+};
