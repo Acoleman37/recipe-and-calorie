@@ -87,24 +87,33 @@ function recipeCards(recipeData, e){
 
 $(document).on("click", "#addMeal", function (e) {
   e.stopImmediatePropagation();
+  // gets our nutrition info and splits the |'s away from it
   var mealTime = $(this).val();
   var mealSplit = mealTime.split("|");
   var currentTime = moment().format("MMM Do YY");
-  var e = document.getElementById("mealType2");
-  var test2 = e.value;
+  // selects meal type
+  var mealTypeId = document.getElementById("mealType2");
+  var mealTypeValue = mealTypeId.value;
+  // adding information to an array for later use
   mealSplit.push(currentTime);
-  mealSplit.push(test2);
+  mealSplit.push(mealTypeValue);
   mealTracker.push(mealSplit);
+  var mealTrackerAppender = mealTracker[0];
+  // Sending info to local storage
+  var $mealtypeContainer = $(`[data-meal-type='${mealTypeValue}']`);
+  $mealtypeContainer.append("<li>" + mealTrackerAppender[0] + "</li>" );
+
   localStorage.setItem("meals", JSON.stringify(mealTracker));
 });
 
 window.onload = function(e) {
-  // e.stopImmediatePropagation();
+  e.stopImmediatePropagation();
+  // Loads meals after page is loaded
   var loadedMeals = localStorage.getItem("meals");
   loadedMeals = JSON.parse(loadedMeals);
   loadEmUp(e, loadedMeals)
 }
-
+// Appends our info from local storage
 var loadEmUp = function(e, savedMeals) {
   e.stopImmediatePropagation();
   console.log(savedMeals);
@@ -112,7 +121,6 @@ var loadEmUp = function(e, savedMeals) {
     var saveMealReport = savedMeals[i];
     var date = saveMealReport[1];
     var mealType = saveMealReport[2];
-    console.log("date: " + date + " mealtype: " + mealType);
     var $mealtypeContainer = $(`[data-meal-type='${mealType}']`);
     $mealtypeContainer.append("<li>" + saveMealReport[0] + "</li>" );
   }
