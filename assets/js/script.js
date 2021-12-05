@@ -99,10 +99,10 @@ $(document).on("click", "#addMeal", function (e) {
   mealSplit.push(mealTypeValue);
   mealTracker.push(mealSplit);
   var mealTrackerAppender = mealTracker[0];
-  // Sending info to local storage
+  // appends our recipes on button press
   var $mealtypeContainer = $(`[data-meal-type='${mealTypeValue}']`);
   $mealtypeContainer.append("<li>" + mealTrackerAppender[0] + "</li>" );
-
+  // Sending info to local storage
   localStorage.setItem("meals", JSON.stringify(mealTracker));
 });
 
@@ -117,12 +117,13 @@ window.onload = function(e) {
 var loadEmUp = function(e, savedMeals) {
   e.stopImmediatePropagation();
   console.log(savedMeals);
+  // goes through each item in our array and appends an item for each
   for (var i = 0; i <= savedMeals.length; i++) {
     var saveMealReport = savedMeals[i];
     var date = saveMealReport[1];
     var mealType = saveMealReport[2];
     var $mealtypeContainer = $(`[data-meal-type='${mealType}']`);
-    $mealtypeContainer.append("<li>" + saveMealReport[0] + "</li>" );
+    $mealtypeContainer.append("<li>" + date + "- " + saveMealReport[0] + "</li>" );
   }
 };
 
