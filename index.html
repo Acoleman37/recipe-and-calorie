@@ -10,87 +10,73 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <style>
-    header{
-      background: url(images/banner.jpg);
-      background-size: cover;
-      background-position: center;
-      min-height: 400px;
-    }
-  </style>
 </head>
 
 <body>
 
   <header>
     <section>
-      <nav class="nav-wrapper">
+      <nav id="navbar" class="nav-wrapper blue-grey darken-1">
         <div>
-          <a href="#!" id="logo" class="material-icons brown-text"></a>
+          <a href="#!" class="material-icons brown-text"></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="#Look-up-your-Recipe" class="brown-text">Look up your Recipe</a></li>
-            <li><a href="#Nutrient-Information" class="brown-text">Nutrient Information</a></li>
+            <li><a class="black-text">Look up your Recipe</a></li>
+            <li><a class="black-text">Nutrient Information</a></li>
           </ul>
         </div>
         
         <div class="nav-content">
-          <span class="nav-title"><h1 class="brown-text">Eat Better Not Less</h1></span>
+          <span class="nav-title"><h1 class="blue-grey-text text-darken-4">Eat Better Not Less</h1></span>
         </div>
       </nav>
     </section>
   </header>
 
-  <div id="bodycontainer" class="container"> 
     <section>
-      <div id="box1" class="grid-conatainer"> 
-        <h4 class="brown-text">Look up your Recipe</h4>
-        <input id="searchTerm" type="text" placeholder="Enter search term" />
-        <button id="search">Search</button>
+      <div id="box1"> 
+        <h4 class="blue-grey-text text-darken-4">Look up your Recipe</h4>
+        <p class="blue-grey-text text-darken-2">Find any recipe that you desire! They are all delicious and make you want more.</p>
+        <input id="searchTerm" type="text" placeholder="Enter Desired Recipe" />
+        <button id="search">Find my Recipe</button>
         <select name="mealType" id="mealType2">
           <option value="Breakfast">Breakfast</option>
           <option value="Lunch">Lunch</option>
           <option value="Dinner">Dinner</option>
           <option value="Snack">Snack</option>
         </select>
-
+        <div id="content"></div>
       </div>
-      <div id="content"></div>
     </section>
-  </div>
       
-  <section>
-    <div id="box2" class="grid-conatainer">
-      <h4 class="brown-text">See your Nutrient information</h4>
-      <form data-bind="submit: doSomething" onsubmit="return false" multiple>
-        <div class="form-group" >
-          <label for="inputlg">What you have eaten today:</label>
-            <select name="mealType" id="mealType">
-              <option value="Breakfast">Breakfast</option>
-              <option value="Lunch">Lunch</option>
-              <option value="Dinner">Dinner</option>
-              <option value="Snacks">Snacks</option>
-            </select>
-          <input class="form-control input-lg" id="inputlg" type="text" />
-          <button type="text" onclick="myFunction()" class="btn btn-primary btn-lg">Add Food</button>
-        </div>
-      </form>
-    <div>
-      <p>Your Macros contain:</p>
-      <ol data-meal-type="Breakfast">Breakfast</ol>
-      <ol data-meal-type="Lunch">Lunch</ol>
-      <ol data-meal-type="Dinner">Dinner</ol>
-      <ol data-meal-type="Snacks">Snacks</ol>
-    </div>
-  </section>
-
-  <footer class="page-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h4 class="brown-text">Eat Better Not Less</h4>
-          <p class="brown-text text-lighten-3">Made by Alec, Nic, and Sam</p>
-        </div>
+    <section>
+      <div id="box2" class="grid-container">
+        <h4 class="blue-grey-text text-darken-4">See your Nutrient Information</h4>
+        <form data-bind="submit: doSomething" onsubmit="return false" multiple>
+          <div class="form-group" >
+            <label for="inputlg">What you have eaten today:</label>
+              <select name="mealType" id="mealType">
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Snacks">Snacks</option>
+              </select>
+            <input class="form-control input-lg" id="inputlg" type="text" />
+            <button type="text" onclick="myFunction()" class="btn btn-primary btn-lg">Add Food</button>
+          </div>
+        </form>
+      <div>
+        <p>Your Macros contain:</p>
+        <ol data-meal-type="Breakfast">Breakfast</ol>
+        <ol data-meal-type="Lunch">Lunch</ol>
+        <ol data-meal-type="Dinner">Dinner</ol>
+        <ol data-meal-type="Snacks">Snacks</ol>
       </div>
+    </section>
+
+  <footer class="page-footer blue-grey darken-1">
+    <div class="container">
+          <h4 class="black-text">Eat Better Not Less</h4>
+          <p class="black-text">Made by Alec, Nic, and Sam</p>
     </div>
   </footer>
 
