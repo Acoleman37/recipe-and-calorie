@@ -116,7 +116,6 @@ window.onload = function(e) {
 // Appends our info from local storage
 var loadEmUp = function(e, savedMeals) {
   e.stopImmediatePropagation();
-  console.log(savedMeals);
   // goes through each item in our array and appends an item for each
   for (var i = 0; i <= savedMeals.length; i++) {
     var saveMealReport = savedMeals[i];
