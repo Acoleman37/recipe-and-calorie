@@ -23,7 +23,7 @@ header{
 
 header::before{
     content: "";
-    background: url(/assets/images/banner.JPG);
+    background: url("https://qph.fs.quoracdn.net/main-qimg-495829fbe401c5fbb54a37672c6919f9");
     background-size: cover;
     background-position: center;
     position: absolute;
