@@ -1,12 +1,12 @@
-var searchButton = document.querySelector("#search");
-var mealButton = document.getElementById("addmeal");
-var test1 = document.getElementById("searchTerm");
-var input1 = "";
-var recipeData = [];
-var cardBox = document.getElementById("content");
-var mealTracker = [];
+const searchButton = document.querySelector("#search");
+const mealButton = document.getElementById("addmeal");
+const test1 = document.getElementById("searchTerm");
+const input1 = "";
+const recipeData = [];
+const cardBox = document.getElementById("content");
+const mealTracker = [];
 
-//Add an event listener to the button that runs the function sendApiRequest when it is clicked
+//Event listener to the button that runs the function sendApiRequest when it is clicked
 searchButton.addEventListener("click", (e) => {
   sendApiRequest(e);
 });
@@ -25,31 +25,30 @@ async function sendApiRequest(e) {
   let response = await fetch(
     `https://api.edamam.com/search?app_id=` + APP_ID + `&app_key=` + API_KEY + `&count=6&q=` + input1);
   let data = await response.json();
-  var recipeData = data.hits;
+  const recipeData = data.hits;
   // Sends hits to be made into recipe cards
   recipeCards(recipeData, e);
 }
 
-//function that does something with the data received from the API. The name of the function should be customized to whatever you are doing with the data
 function recipeCards(recipeData, e){
   e.stopImmediatePropagation()
   // Selects and removes cards when searching for more cards
-  var element = $(".recipeCardsGen");
+  const element = $(".recipeCardsGen");
   element.remove();
   // Takes our hits and appends them to a div
-  for (var i = 0; i < 6; i++) {
+  for (const i = 0; i < 6; i++) {
     // Lots of information being selected
-    var calorieInfo = Math.round((recipeData[i].recipe.calories));
-    var fatInfo = Math.round(
+    const calorieInfo = Math.round((recipeData[i].recipe.calories));
+    const fatInfo = Math.round(
       recipeData[i].recipe.totalNutrients.FAT.quantity
     );
-    var protienInfo = Math.round((recipeData[i].recipe.totalNutrients.PROCNT.quantity));
-    var recipePicture = recipeData[i].recipe.image;
-    var recipeURL = recipeData[i].recipe.url;
-    var recipeServingSize = recipeData[i].recipe.yield;
-    var singleServing = Math.round(calorieInfo / recipeServingSize);
-    var recipeName = recipeData[i].recipe.label;
-    var infosavedMeals = [recipeName + " Calories: " + singleServing, " Fat: " + fatInfo, " Protien: " + protienInfo]
+    const protienInfo = Math.round((recipeData[i].recipe.totalNutrients.PROCNT.quantity));
+    const recipePicture = recipeData[i].recipe.image;
+    const recipeURL = recipeData[i].recipe.url;
+    const recipeServingSize = recipeData[i].recipe.yield;
+    const singleServing = Math.round(calorieInfo / recipeServingSize);
+    const recipeName = recipeData[i].recipe.label;
+    const infosavedMeals = [recipeName + " Calories: " + singleServing, " Fat: " + fatInfo, " Protien: " + protienInfo]
     // Needs for each to break down the lines
     cardBox.insertAdjacentHTML(
       "afterbegin", `  <div class="recipeCardsGen">
@@ -88,19 +87,19 @@ function recipeCards(recipeData, e){
 $(document).on("click", "#addMeal", function (e) {
   e.stopImmediatePropagation();
   // gets our nutrition info and splits the |'s away from it
-  var mealTime = $(this).val();
-  var mealSplit = mealTime.split("|");
-  var currentTime = moment().format("MMM Do YY");
+  const mealTime = $(this).val();
+  const mealSplit = mealTime.split("|");
+  const currentTime = moment().format("MMM Do YY");
   // selects meal type
-  var mealTypeId = document.getElementById("mealType2");
-  var mealTypeValue = mealTypeId.value;
+  const mealTypeId = document.getElementById("mealType2");
+  const mealTypeValue = mealTypeId.value;
   // adding information to an array for later use
   mealSplit.push(currentTime);
   mealSplit.push(mealTypeValue);
   mealTracker.push(mealSplit);
-  var mealTrackerAppender = mealTracker[0];
+  const mealTrackerAppender = mealTracker[0];
   // appends our recipes on button press
-  var $mealtypeContainer = $(`[data-meal-type='${mealTypeValue}']`);
+  const $mealtypeContainer = $(`[data-meal-type='${mealTypeValue}']`);
   $mealtypeContainer.append("<li>" + mealTrackerAppender[0] + "</li>" );
   // Sending info to local storage
   localStorage.setItem("meals", JSON.stringify(mealTracker));
@@ -109,29 +108,30 @@ $(document).on("click", "#addMeal", function (e) {
 window.onload = function(e) {
   e.stopImmediatePropagation();
   // Loads meals after page is loaded
-  var loadedMeals = localStorage.getItem("meals");
+  const loadedMeals = localStorage.getItem("meals");
   loadedMeals = JSON.parse(loadedMeals);
   loadEmUp(e, loadedMeals)
 }
+
 // Appends our info from local storage
-var loadEmUp = function(e, savedMeals) {
+const loadEmUp = function(e, savedMeals) {
   e.stopImmediatePropagation();
   // goes through each item in our array and appends an item for each
-  for (var i = 0; i <= savedMeals.length; i++) {
-    var saveMealReport = savedMeals[i];
-    var date = saveMealReport[1];
-    var mealType = saveMealReport[2];
-    var $mealtypeContainer = $(`[data-meal-type='${mealType}']`);
+  for (const i = 0; i <= savedMeals.length; i++) {
+    const saveMealReport = savedMeals[i];
+    const date = saveMealReport[1];
+    const mealType = saveMealReport[2];
+    const $mealtypeContainer = $(`[data-meal-type='${mealType}']`);
     $mealtypeContainer.append("<li>" + date + "- " + saveMealReport[0] + "</li>" );
   }
 };
 
 // This function gets the user input and then jQuery interacts with the API and append the results to the food log. 
 function myFunction(){
-  var text = document.getElementById('inputlg').value;
-  var encodedFood = encodeURIComponent(text); 
-  var mealType = $("#mealType").val();
-  var e = document.getElementById("mealType");
+  const text = document.getElementById('inputlg').value;
+  const encodedFood = encodeURIComponent(text); 
+  const mealType = $("#mealType").val();
+  const e = document.getElementById("mealType");
   // Ajax call to API and then appends the returned info to the food log. 
   $.ajax({
     url: `https://trackapi.nutritionix.com/v2/natural/nutrients`,
@@ -145,17 +145,12 @@ function myFunction(){
     'processData': false,
     data: JSON.stringify({"query": encodedFood}),
     success: function(response) {
-
-      // create the LI
-      // create the text for the LI
-      // append the LI to myOl element
-      // let mealType = dropdown menu result #breakfast
       
-      var $mealtypeContainer = $(`[data-meal-type='${mealType}']`);
+      const $mealtypeContainer = $(`[data-meal-type='${mealType}']`);
       $mealtypeContainer.append("<li>"+response.foods[0].food_name  +" Calories  " + response.foods[0].nf_calories + " Fat  " + response.foods[0].nf_total_fat + " Protein " + response.foods[0].nf_protein+"</li>" );
     
       window.localStorage.setItem("Macros", JSON.stringify(response));
 
-      }
+    }
   });
 }
