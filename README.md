@@ -8,7 +8,7 @@
 
 * The second section is dedicated to tracking what you eat. It can look up specific food items along with their nutritional information as well as showing you everything you ate along the way.
 
-* In making our site we used html, css, javescript, jquery, moment.js, edamam api, nutritionix api, and materialize css
+* In making our site we used html, css, javascript, jquery, moment.js, edamam api, nutritionix api, and materialize css
 
 ## Questions
 
